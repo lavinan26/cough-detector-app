@@ -1,0 +1,5 @@
+.DS_Store
+src/modules/__pycache__/
+src/process/__pycache__/
+src/recordSound/__pycache__/
+src/respond/__pycache__/
