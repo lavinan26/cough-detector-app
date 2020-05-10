@@ -1,8 +1,6 @@
 import numpy as np
-
+import pickle
+from sklearn.svm import SVC
 def infer(signal,logging,model):
-    #START
-    result = "cough"
-    #END
-    #return result as either "cough" or "non_cough"
+    result = model.predict([signal])[0]
     return result
