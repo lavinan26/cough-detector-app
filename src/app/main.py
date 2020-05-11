@@ -15,7 +15,14 @@ from src.respond.responder import respond
 preprocess = PreProcessing()
 
 #Load model in the below line
-model = load_model("src\\model\\model_CNN.h5")
+# If tflite model
+model_file = open("src\\model\\tflite_model.tflite","rb")
+model = model_file.read()
+model_file.close()
+
+# If CNN model
+#model = load_model("src\\model\\model_CNN.h5")
+
 logging.basicConfig(format='%(asctime)s-%(levelname)s - %(message)s', level=logging.INFO)
 receiver = SoundReceiver(logging = logging,overlap_duration = 2, sample_rate = 22050)
 source = SoundRecorder(process = record, sink = receiver,sample_rate = 22050, recording_duration = 5,logging = logging, overlap_duration = 2)
@@ -25,6 +32,7 @@ source.setDaemon = True
 processor.setDaemon = True
 source.start()
 processor.start()
+
 #while True:
 #    a = 2
     #logging.info(receiver.queue)
