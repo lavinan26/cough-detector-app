@@ -3,20 +3,20 @@ sys.path.append("./")
 from threading import Thread
 import logging
 from tensorflow.keras.models import load_model
-from src.modules.soundRecorder import SoundRecorder
-from src.modules.soundReceiver import SoundReceiver
-from src.modules.responder import Responder
-from src.modules.processor import Processor
-from src.recordSound.soundRecorder import record
-from src.process.preProcessor import PreProcessing
-from src.process.detector import infer
-from src.respond.responder import respond
+from modules.soundRecorder import SoundRecorder
+from modules.soundReceiver import SoundReceiver
+from modules.responder import Responder
+from modules.processor import Processor
+from recordSound.soundRecorder import record
+from process.preProcessor import PreProcessing
+from process.detector import infer
+from respond.responder import respond
 
 preprocess = PreProcessing()
 
 #Load model in the below line
 # If tflite model
-model_file = open("src\\model\\tflite_model.tflite","rb")
+model_file = open("model\\tflite_model.tflite","rb")
 model = model_file.read()
 model_file.close()
 
